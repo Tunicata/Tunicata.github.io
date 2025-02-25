@@ -25,14 +25,13 @@
 	<link href=/css/app.c5aa5139.css rel=stylesheet>
     
     <script>
-        fetch("http://ip-api.com/json/?fields=countryCode")
+        fetch("http://ip-api.com/json/?fields=status,message,countryCode")
         .then(response => response.json())
         .then(data => {
-            if (data.countryCode === "CN") {
+            if (data.status === "success" && data.countryCode === "CN") {
         		window.location.replace("https://portfolio-3geovuxv1f8bcc73-1302330250.tcloudbaseapp.com");
             }
         })
-        .catch(error => console.error("IP API Error:", error));
     </script>
 </head>
 <body>
@@ -41,7 +40,7 @@
 	</noscript>
 
 	<div id=app></div>
-	
+
 	<script src=/js/chunk-vendors.da034d02.js></script>
 	<script src=/js/app.ec4f7cdd.js></script>
 </body>
